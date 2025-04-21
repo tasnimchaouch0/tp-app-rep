@@ -11,12 +11,7 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Query("SELECT e FROM Employee e WHERE " +
-            "(:name IS NULL OR e.name LIKE %:name%) AND " +
-            "(:position IS NULL OR e.position = :position) AND " +
-            "(:minSalary IS NULL OR e.salary >= :minSalary)")
-    List<Employee> findByFilters(@Param("name") String name,
-                                 @Param("position") String position,
-                                 @Param("minSalary") String minSalary);
-
+            "(:name IS NULL OR e.name LIKE %:name%) ")
+    List<Employee> findByFilters(String name);
 }
 

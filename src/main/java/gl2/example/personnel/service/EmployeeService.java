@@ -30,8 +30,8 @@ public class EmployeeService {
     public void deleteEmployee(Long id) {
         employeeRepository.deleteById(id);
     }
-    public List<Employee> filterEmployees(String name, String position, String minSalary) {
-        return employeeRepository.findByFilters(name, position, minSalary);
+    public List<Employee> filterEmployees(String name) {
+        return employeeRepository.findByFilters(name);
     }
 
 

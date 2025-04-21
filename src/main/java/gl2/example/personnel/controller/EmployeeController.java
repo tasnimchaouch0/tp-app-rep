@@ -98,14 +98,13 @@ public class EmployeeController {
         Employee updatedEmployee = employeeService.addEmployee(employee);
         return ResponseEntity.ok(updatedEmployee);
     }
-    @GetMapping("/filter")
+    @GetMapping("/filter/{name}")
     public List<Employee> filterEmployees(
-            @RequestParam(required = false) String name,
-            @RequestParam(required = false) String position,
-            @RequestParam(required = false) String minSalary
-    ) {System.out.println("Filtering with name=" + name + ", position=" + position + ", minSalary=" + minSalary);
+            @PathVariable(required = false) String name
 
-        return employeeService.filterEmployees(name, position, minSalary);
+    ) {System.out.println("Filtering with name=" + name );
+
+        return employeeService.filterEmployees(name);
     }
 
 
